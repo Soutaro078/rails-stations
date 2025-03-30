@@ -7,3 +7,27 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Movie.create!([
+  {
+    name: "となりのトトロ",
+    year: "1988",
+    description: "小さな村で不思議な生き物トトロと出会う姉妹の物語。",
+    image_url: "https://picsum.photos/300/200?random=1",
+    is_showing: true
+  },
+  {
+    name: "千と千尋の神隠し",
+    year: "2001",
+    description: "不思議な世界で働くことになった少女千尋の冒険。",
+    image_url: "https://picsum.photos/300/200?random=2",
+    is_showing: true
+  },
+  {
+    name: "もののけ姫",
+    year: "1997",
+    description: "自然と人間の共存をテーマにした壮大な物語。",
+    image_url: "https://picsum.photos/300/200?random=3",
+    is_showing: false
+  }
+])

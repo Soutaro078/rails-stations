@@ -1,0 +1,35 @@
+<h1>上映中の映画一覧</h1>
+
+<%= form_with url: movies_path, method: :get, local: true do %>
+  <div>
+    <label>検索:</label>
+    <%= text_field_tag :keyword, params[:keyword] %>
+  </div>
+
+  <div>
+    <label>状態:</label>
+    <%= radio_button_tag :is_showing, "", params[:is_showing].blank? %> すべて
+    <%= radio_button_tag :is_showing, "0", params[:is_showing] == "0" %> 公開予定
+    <%= radio_button_tag :is_showing, "1", params[:is_showing] == "1" %> 公開中
+  </div>
+
+  <div>
+    <%= submit_tag "検索" %>
+  </div>
+<% end %>
+
+<hr>
+
+<div class="movie-list">
+  <% @movies.each do |movie| %>
+    <div class="movie-item">
+      <h2><%= movie.name %></h2>
+      <p><%= movie.description %></p>
+      <img src="<%= movie.image_url %>" alt="<%= movie.name %>の画像" width="300" height="200">
+      <p>
+        状態:
+        <%= movie.is_showing? ? "公開中" : "公開予定" %>
+      </p>
+    </div>
+  <% end %>
+</div>

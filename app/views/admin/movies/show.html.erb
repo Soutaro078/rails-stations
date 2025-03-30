@@ -1,0 +1,15 @@
+<h1>映画詳細情報</h1>
+
+<p><strong>ID:</strong> <%= @movie.id %></p>
+<p><strong>タイトル:</strong> <%= @movie.name %></p>
+<p><strong>公開年:</strong> <%= @movie.year %></p>
+<p><strong>概要:</strong> <%= @movie.description %></p>
+<p><strong>画像:</strong> <%= image_tag @movie.image_url, alt: @movie.name, width: 300, height: 200 %></p>
+<p><strong>上映中:</strong> <%= @movie.is_showing ? "上映中" : "上映予定" %></p>
+<p><strong>登録日時:</strong> <%= @movie.created_at %></p>
+<p><strong>更新日時:</strong> <%= @movie.updated_at %></p>
+
+<%= link_to "編集する", edit_admin_movie_path(@movie), class: "btn btn-primary" %>
+<%= link_to "削除する", admin_movie_path(@movie), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
+<%= link_to "一覧へ戻る", admin_movies_path, class: "btn btn-secondary" %>
+
