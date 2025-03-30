@@ -1,0 +1,12 @@
+<h1>座席表</h1>
+
+<table border="1">
+  <% @grouped_sheets.sort.each do |row, seats| %>
+    <tr>
+      <% seats.sort_by(&:column).each do |seat| %>
+        <td><%= "#{seat.row}-#{seat.column}" %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
