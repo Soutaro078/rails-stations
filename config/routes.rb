@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   get '/movies', to: 'movies#index'
   get 'sheets', to: 'sheets#index'
+  resources :movies, only: [:show]
+
 
 
   #管理者用のルーティング
